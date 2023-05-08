@@ -1,12 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, StatusBar, ScrollView } from 'react-native';
+import ChatsList from './components/ChatsList';
+import Messages from './components/Messages';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar />
+      <SafeAreaView>
+        <ScrollView contentContainerStyle={{paddingLeft: 5}} >
+          <Text style={styles.headingText}>Chats</Text>
+          <ChatsList />
+          <Messages />
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 }
 
@@ -17,4 +24,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headingText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginLeft: 15
+  }
 });
